@@ -5,8 +5,6 @@
 
 # ⚙️ Network Automation Suite 
 
-![1_0w8FQImqgOesY89iLyQtuQ](https://github.com/user-attachments/assets/262688b0-82ab-4901-8ce3-76683ca13e9f)
-
 [![Ansible](https://img.shields.io/badge/ansible-2.12.0-black?style=for-the-badge&logo=ansible)](https://www.ansible.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![Maintenance](https://img.shields.io/badge/maintained%3F-yes-green?style=for-the-badge)](https://github.com/yourusername/yourrepo/graphs/commit-activity)
