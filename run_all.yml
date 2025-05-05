@@ -23,11 +23,11 @@
 
 
 # ACCESS POINT
-#- name: ACCESS POINT
-#  hosts: ap
-#  gather_facts: false
-#  connection: local
+- name: ACCESS POINT
+  hosts: ap
+  gather_facts: false
+  connection: local
 
-#  tasks:
-#    - name: Include tasks for routing configuration
-#      include_tasks: ap.yml
+  tasks:
+    - name: Include tasks for routing configuration
+      include_tasks: ap.yml
