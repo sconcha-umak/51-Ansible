@@ -68,7 +68,7 @@ nano hosts
 
 #COREBABA
 [switch]
-10._.1.4
+10.51.1.4
 
 [switch:vars]
 ansible_user=admin
@@ -80,7 +80,7 @@ ansible_ssh_common_args="-oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-c
 
 #CUCM
 [cucm]
-10._.100.8
+10.51.100.8
 
 [cucm:vars]
 ansible_user=admin
@@ -91,7 +91,7 @@ ansible_network_os=ios
 
 #EDGE
 [edge]
-10._._.1
+10.51.51.1
 
 [edge:vars]
 ansible_user=admin
@@ -102,7 +102,7 @@ ansible_network_os=ios
 
 #ACCESS POINT
 [ap]
-10._.10.3
+10.51.10.3
 
 [ap:vars]
 ansible_user=admin
@@ -116,7 +116,7 @@ ansible_network_os=ios
 @@COREbaba
 
 config t
-hostname COREbaba-_
+hostname COREbaba-51
 enable secret pass
 service password-encryption
 no logging console
@@ -130,27 +130,27 @@ login local
 Int Gi 0/1
 no shutdown
 no switchport
-ip add 10._._.4 255.255.255.0
+ip add 10.51.51.4 255.255.255.0
 Int Vlan 1
 no shutdown
-ip add 10._.1.4 255.255.255.0
+ip add 10.51.1.4 255.255.255.0
 description MGMTDATA
 Int Vlan 10
 no shutdown
-ip add 10._.10.4 255.255.255.0
+ip add 10.51.10.4 255.255.255.0
 description WIRELESS
 Int Vlan 50
 no shutdown
-ip add 10._.50.4 255.255.255.0
+ip add 10.51.50.4 255.255.255.0
 description IPCCTV
 Int Vlan 100
 no shutdown
-ip add 10._.100.4 255.255.255.0
+ip add 10.51.100.4 255.255.255.0
 description VOICEVLAN
 end
 conf t
 ip routing
-ip route 0.0.0.0 0.0.0.0 10._._.1
+ip route 0.0.0.0 0.0.0.0 10.51.51.1
 end
 
 #ENABLE SSH CONNECTION
@@ -177,7 +177,7 @@ crypto key generate rsa general-keys modulus 2048
 @@CUCM
 
 config t
-hostname CUCM-_
+hostname CUCM-51
 enable secret pass
 service password-encryption
 no logging console
@@ -190,11 +190,11 @@ transport input all
 login local
 Int Fa 0/0
 no shutdown
-ip add 10._.100.8 255.255.255.0 
+ip add 10.51.100.8 255.255.255.0 
 end
 conf t
 ip routing
-ip route 0.0.0.0 0.0.0.0 10._.100.4
+ip route 0.0.0.0 0.0.0.0 10.51.100.4
 end
 
 #ENABLE SSH CONNECTION
@@ -221,7 +221,7 @@ crypto key generate rsa general-keys modulus 2048
 @@EDGE
 
 config t
-hostname EDGE-_
+hostname EDGE-51
 enable secret pass
 service password-encryption
 no logging console
@@ -234,19 +234,19 @@ transport input all
 login local
 Int Gi 0/0/0
 description INSIDE
-ip add 10._._.1 255.255.255.0
+ip add 10.51.51.1 255.255.255.0
 no shutdown
 Int Gi 0/0/1
 description PLDT-ME-WAN
-ip add 200.0.0._ 255.255.255.0
+ip add 200.0.0.51 255.255.255.0
 no shutdown
 Int Loopback 0
 description VIRTUALIP
-ip add _.0.0.1 255.255.255.255
+ip add 51.0.0.1 255.255.255.255
 end
 conf t
 ip routing
-ip route 10._.0.0 255.255.0.0 10._._.4
+ip route 10.51.0.0 255.255.0.0 10.51.51.4
 end
 
 
@@ -286,7 +286,7 @@ TRY THE SSH CONNECTION
 
 CORE BABA 
 
-ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc admin@10._.1.4
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc admin@10.51.1.4
 
 ************************************************************************
 Create Alias on Linux - FOR COREBABA
@@ -299,22 +299,22 @@ ssh_short admin@10.12.1.4
 
 **************************************************************************
 
-ssh admin@10._.12.100.8
-ssh admin@10._._.1
+ssh admin@10.51.12.100.8
+ssh admin@10.51.51.1
 
 ************************************************************************
 OPEN CMD ON WINDOWS SEVER
 
-route add 10.0.0.0 mask 255.0.0.0 10._.1.4
-route add 200.0.0.0 mask 255.255.255.0 10._.1.4
+route add 10.0.0.0 mask 255.0.0.0 10.51.1.4
+route add 200.0.0.0 mask 255.255.255.0 10.51.1.4
 ************************************************************************
 
 
 REMOVE SSH 
 
-ssh-keygen -f "/root/.ssh/known_hosts" -R "10._.1.4"
-ssh-keygen -f "/root/.ssh/known_hosts" -R "10._.100.8"
-ssh-keygen -f "/root/.ssh/known_hosts" -R "10._._.1"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "10.51.1.4"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "10.51.100.8"
+ssh-keygen -f "/root/.ssh/known_hosts" -R "10.51.51.1"
 
 
 
