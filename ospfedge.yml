@@ -10,10 +10,10 @@
         commands:
           - configure terminal
           - router ospf 1
-          - router-id _.0.0.1
+          - router-id 51.0.0.1
           - network 200.0.0.0 0.0.0.255 area 0
-          - network 10._._.0 0.0.0.255 area 0
-          - network _.0.0.1 0.0.0.0 area 0
+          - network 10.51.51.0 0.0.0.255 area 0
+          - network 51.0.0.1 0.0.0.0 area 0
           - Interface gi 0/0/0
           - ip ospf network point-to-point
           - end
